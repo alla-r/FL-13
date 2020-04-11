@@ -71,7 +71,7 @@
 }
 
 section {
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(236, 236, 236);
 }
 
 .tm-main-nav,
@@ -169,7 +169,7 @@ h2 + p,
 }
 
 .blocks .gallery-container li {
-  padding: 6px;
+  padding: 8px;
   
 }
 
@@ -225,11 +225,12 @@ h2 + p,
  color: lightskyblue;
  background-color: #fff;
  border-radius: 0;
- border: 2px solid lightseagreen;
+ border: 2px solid lightskyblue;
  padding: 0.5rem 2.5rem;
 }
 
 #contact .submit-btn:hover {
   color: #fff;
   background-color: lightseagreen;
+  border: 2px solid lightseagreen;
 }
