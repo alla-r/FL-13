@@ -1,0 +1,253 @@
+// Write your styles here
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: map-get($map: $color, $key: "background");
+  line-height: 1.5;
+}
+
+@mixin button ($color, $text-color,) {
+  border: none;
+  padding: 0.8vw 3vw;
+  font-size: 1.25vw;
+  font-weight: 600;
+  color: $text-color;
+  background-color: $color;
+  font-family: $font-original; 
+}
+
+@mixin link ($color) {
+  color: $color;
+  font-weight: 400;
+  font-family: $font-secondary;
+  letter-spacing: 0.2px;
+}
+
+.landing-logo {
+  display: inline-block;
+  margin: 1.7vw 0;
+  p {
+    float: right;
+    padding: 0.2rem 0.75rem;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+    span {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+}
+
+.header {
+  background: $image;
+  height: 100vh;
+  width: 100vw;
+  color: map-get($map: $color, $key: "text-secondary");
+  font-family: $font-primary;
+  border-radius: 0 0 45% 0 / 35%;
+  .header-wrap {
+    width: 50vw;
+    margin-left: 10vw;
+
+    .header_heading {
+      margin: 9vh 0 7vh 0;
+      font-size: 5vw;
+      font-weight: 700;
+      line-height: 1;
+      position: relative;
+      z-index: 2;
+      font-family: $font-original;
+
+      &::before {
+        content: '';
+        width: 21vw;
+        height: 3.75vw;
+        background: map-get($map: $color, $key: "highlighted");
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        bottom: -0.2vw;
+      }
+    }
+
+    .header_text {
+      white-space: pre-line;
+      margin-bottom: 7vh;
+      font-size: 1.1vw;
+      letter-spacing: 0.5px;
+    }
+
+    div .header_button {
+      @include button (map-get($map: $color, $key: "button"), map-get($map: $color, $key: "text-primary"));
+    }
+    
+    div a.login {
+      @include link (map-get($map: $color, $key: "text-primary"));
+      font-size: 1.2vw;
+      padding-left: 10vw;
+    }
+  }
+}
+
+main {
+  font-family: $font-original;
+  text-align: center;
+  margin-bottom: 11.5vw;
+  position: relative;
+  color: map-get($map: $color, $key: "text-primary");
+
+  .section_text {
+    display: inline-block;
+    margin: 3vh;
+    font-size: 2.5vw;
+    font-weight: 600;
+    position: relative;
+    color: map-get($map: $color, $key: "text-secondary");
+
+    &::before {
+      content: '';
+      width: 11.25vw;
+      height: 2.9vw;
+      background: map-get($map: $color, $key: "highlighted");
+      z-index: -1;
+      position: absolute;
+      right: 0.66vw;
+      bottom: 0.4vw;
+    }
+  }
+
+  .section_card_wrap {
+    width: 60vw;
+    margin: auto;
+
+    .section_card {
+      background-color: map-get($map: $color, $key: "section-footer");
+      
+      padding: 1vw;
+      display: flex;
+      margin-bottom: 2vh;
+      border-radius: 5px;
+
+      .section_card_img {
+        border-radius: 5px;
+        width: 100%;
+        height: auto;
+      }
+
+      .section_card_right_container {
+        padding: 1.5vw 6.5vw 1.25vw 5vw;
+
+        .section_card_heading {
+          font-size: 1.7vw;
+          font-weight: 600;
+          text-align: center;
+          margin-bottom: 1vw;
+        }
+
+        .section_card_text {
+          font-family: $font-primary;
+          letter-spacing: 1px;
+          font-size: 0.95vw;
+          text-align: justify;
+          margin-bottom: 0.8vw;
+          color: map-get($map: $color, $key: "text-middle");
+        }
+
+        .section_link {
+          @include link (map-get($map: $color, $key: "text-middle"));
+          font-size: 1vw;
+
+        }
+      }
+    }
+  }
+
+  .section_banner {
+    background: $gradient;
+    width: 65vw;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    z-index: 33;
+    position: absolute;
+    bottom: -15.5vw;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    .section_banner_text_wrap {
+      text-align: left;
+      margin: 1.7vw 6vw;
+
+      .section_banner_heading {
+        font-size: 1.7vw;
+        font-weight: 700;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 0.8vw;
+        color: map-get($map: $color, $key: "text-secondary");
+
+        &::before {
+          content: '';
+          width: 3.64vw;
+          height: 2.5vw;
+          background: map-get($map: $color, $key: "highlighted");
+          z-index: -1;
+          position: absolute;
+          left: 6.85vw;
+          bottom: 0rem;
+        }
+      }
+
+      .section_banner_text {
+        font-size: 0.87vw;
+        font-family: $font-primary;
+        color: map-get($map: $color, $key: "text-middle");
+        margin-bottom: 0.5vw;
+        letter-spacing: 0.25px;
+      }
+    }
+
+    .section_banner_button {
+      @include button (map-get($map: $color, $key: "button"), map-get($map: $color, $key: "text-primary"));
+      margin: auto 6vw auto 0 ;
+    }
+  }
+}
+
+footer {
+  background-color: map-get($map: $color, $key: "section-footer");
+  font-family: $font-primary;
+  color: map-get($map: $color, $key: "text-middle");
+  font-size: 1vw;
+  /* max-width: 100vw; */
+
+  .footer-wrap {
+    display: grid;
+    padding: 8vw 4.16vw 4.5vw 2vw;
+    grid-template-columns: repeat(3, 25vw);
+    justify-content: space-between;
+
+    .footer_logo {
+      margin: auto;
+    }
+  
+    .footer_text {
+      @extend.footer_logo;
+      letter-spacing: 1px;
+    }
+  
+    .footer-cr {  
+      @extend.footer_text;
+    }
+  }
+}

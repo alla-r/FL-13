@@ -1,0 +1,17 @@
+$color: (
+  highlighted: #ff4e33,
+  button: #e3ac00,
+  background: #21232e,
+  section-footer: #3b3f50,
+
+  text-secondary: #fff,
+  text-primary: #fff,
+  text-middle: darken(#fff, 10%)
+);
+
+$font-primary: 'Fresca', sans-serif;
+$font-secondary: 'Hind', sans-serif;
+$font-original: 'Source Sans Pro', sans-serif;
+
+$gradient: linear-gradient(to right, #d7990b 0%,#932d51 100%);
+$image: url(../img/m-h-night.jpg) no-repeat center center/cover;
