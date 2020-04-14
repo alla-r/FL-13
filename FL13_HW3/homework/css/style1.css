@@ -89,12 +89,12 @@ main {
     main .section_text::before {
       content: '';
       width: 11.25vw;
-      height: 2.9vw;
+      height: 3vw;
       background: #14A0c7;
       z-index: -1;
       position: absolute;
       right: 0.66vw;
-      bottom: 0.4vw; }
+      bottom: 0.7vw; }
   main .section_card_wrap {
     width: 60vw;
     margin: auto; }
@@ -157,7 +157,7 @@ main {
           z-index: -1;
           position: absolute;
           left: 6.85vw;
-          bottom: 0rem; }
+          bottom: 0.4vw; }
       main .section_banner .section_banner_text_wrap .section_banner_text {
         font-size: 0.87vw;
         font-family: "Hind", sans-serif;
