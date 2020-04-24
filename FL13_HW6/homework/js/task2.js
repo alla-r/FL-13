@@ -1,18 +1,16 @@
 // Your code goes here
 const input = prompt('Enter a word:');
 
-function isNotEmpty (word) {
-  return Boolean(word.trim());
-}
-
-if ( isNotEmpty(input) ) {
+if (input === null) {
+  alert(`You didn't enter a word`);
+} else if ( input.trim() ) {
   const inputLength = input.length;
   if (inputLength % 2 === 0) {
-    alert(`${input[inputLength/2-1]}${input[inputLength/2]}`);
+    alert(`Middle characters are "${input[inputLength/2-1]}${input[inputLength/2]}"`);
   } else if (inputLength === 1) {
-    alert(input);
+    alert(`Middle character is "${input}"`);
   } else {
-    alert(input[(inputLength-1)/2]);
+    alert(`Middle character is "${input[(inputLength-1)/2]}"`);
   }
 } else {
   alert('Invalid value');

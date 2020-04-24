@@ -5,22 +5,10 @@ const tip = parseFloat((+prompt('Enter a tip percentage:')).toFixed(numberForRou
 let tipAmount;
 let totalSum;
 
-function validTip (tip) {
-  if ( tip > 0 && tip <= 100 ) {
-    return true;
-  } else { 
-    return false; 
-  } 
-}
-
-function isNumber (number) {
-  return !isNaN(number);
-}
-
-if ( isNumber(tip) && isNumber(checkNumber) && validTip(tip) ) {
+if ( !isNaN(tip) && !isNaN(checkNumber) && tip >= 0 && tip <= 100 ) {
   tipAmount = parseFloat((tip * checkNumber / 100).toFixed(numberForRounding));
   totalSum = parseFloat((tipAmount + checkNumber).toFixed(numberForRounding));
-  if (totalSum > 0) {
+  if (totalSum >= 0) {
     alert(
       `
       Check number: ${checkNumber}
