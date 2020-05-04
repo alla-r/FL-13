@@ -3,7 +3,6 @@
 // 1 - convert
 const converter = function () {
   const arr = [];
-
   for (let i = 0; i < arguments.length; i++) {
     if ( typeof arguments[i] === 'number' ) {
       arr.push(String(arguments[i]));
@@ -59,7 +58,6 @@ const containsValue = function (arr, value) {
 // 6 - flipOver
 const flipOver = function (str) {
   let newStr = '';
-
   for (let i = str.length - 1; i >= 0; i--) {
     newStr += str[i];
   }
@@ -75,8 +73,7 @@ const makeListFromRange = function (arr) {
       newArr.push(i);
     }
   } else {
-    console.log('********');
-    for (let j = arr[0]; j >= arr[1]; j--) {
+    for (let j = arr[1]; j <= arr[0]; j++) {
       newArr.push(j);
     }
   }
@@ -87,7 +84,6 @@ const makeListFromRange = function (arr) {
 // 8 - getArrayOfKeys
 const getArrayOfKeys = function (arr, value) {
   let newArr = [];
-
   executeforEach(arr, function (el) {
     for ( let key in el) {
       if (key === value) {
@@ -116,32 +112,25 @@ const substitute = function (arr) {
 const getPastDay = function(date, number) {
   const mlsec = number * 24 * 60 * 60 * 1000;
   const desiredDate = new Date(date - mlsec);
+
   return desiredDate.getDate();
 }
 
 // 11 formatDate
+function makeTwoDigit (el) {
+  if (el < 10) {
+    el = '0' + el;
+  }
+
+  return el;
+ }
+
 const formatDate = function (date) {
   const year = date.getFullYear();
-  let month = date.getMonth() + 1;
-  let day = date.getDate();
-  let hrs = date.getHours(); 
-  let min = date.getMinutes();
-
-  if (month < 10) { 
-    month = '0' + month; 
-  }
-
-  if (day < 10) { 
-    day = '0' + day; 
-  }
-
-  if (hrs < 10) { 
-    hrs = '0' + hrs; 
-  }
-
-  if (min < 10) { 
-    min = '0' + min; 
-  }
+  let month = makeTwoDigit(date.getMonth() + 1);
+  let day = makeTwoDigit(date.getDate());
+  let hrs = makeTwoDigit(date.getHours()); 
+  let min = makeTwoDigit(date.getMinutes());
 
   return `${year}/${month}/${day} ${hrs}:${min}`;
 }
