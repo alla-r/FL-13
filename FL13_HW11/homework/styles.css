@@ -1,0 +1,89 @@
+/* TODO: your styles goes here*/
+#root {
+ padding: 1rem 0;
+  width: 50%;
+  margin: auto;
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 7px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5); 
+}
+
+ul {
+  list-style: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.empty-folder {
+  font-style: italic;
+  margin: 0;
+  cursor: text;
+}
+
+input:disabled {
+  background-color: #fff;
+  border-color: transparent;
+  color: #000;
+  font-size: 1em;
+  width: 85%;
+}
+
+/* icons */
+i[hidden] {
+  display: none;
+}
+
+.material-icons {
+  color: #fdc408;
+  font-size: 1.7em;
+  display: inline-block;
+  vertical-align: -25%;
+}
+.file-icon {
+  color: rgb(180, 180, 180);
+}
+
+/* li hover */
+li {
+  position: relative;
+}
+li > span:hover::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.75rem;
+  background: rgb(224, 224, 224);
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+li > span > input:disabled:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+/* Menu */
+.context-menu > li:hover {
+  background-color: rgb(224, 224, 224);
+}
+.context-menu.disabled > li:hover {
+  cursor: default;
+  background-color: #fff;
+}
+
+.context-menu {
+  margin: 0;
+  padding: 0.75rem 0.75rem;
+  position: fixed;
+  display: none; 
+  background-color: #fff;
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 1px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+
+.context-menu.active {
+  display: block;
+}
