@@ -1,6 +1,5 @@
 const root = document.getElementById('root');
 
-// from localStorage
 let data;
 if (!localStorage.getItem('booksUpdate')) {
   data = JSON.parse(localStorage.getItem('books'));
@@ -8,12 +7,10 @@ if (!localStorage.getItem('booksUpdate')) {
   data = JSON.parse(localStorage.getItem('booksUpdate'));
 }
 
-// Отрисовка статик части
 function staticSide () {
   const staticSide = document.createElement('div');
   staticSide.id = 'static-side';
   staticSide.className = 'container';
-  //static side
   const title = document.createElement('h1');
   title.innerHTML = 'Book List';
   title.id = 'main-title';
@@ -47,7 +44,7 @@ function staticSide () {
     dynamicSide.className = 'container';
     root.append(dynamicSide);
   }
-  // OPENING PAGES
+
   const editBtnList = Array.from(document.querySelectorAll('.edit-btn'));
   editBtnList.forEach( btn => {
     const id = btn.parentNode.id;
@@ -87,7 +84,6 @@ function staticSide () {
   return staticSide;
 }
 
-// Book edit
 function showEditBook (id) {
   const dynamicSide = document.querySelector('#dynamic-side');
   dynamicSide.innerHTML = '';
@@ -109,7 +105,6 @@ function showEditBook (id) {
   imgURLInput.required = true;
   const plotInput = document.createElement('textarea');
   plotInput.setAttribute('type', 'text');
-  //plotInput.setAttribute('value', `${data[0].plot}`);
   plotInput.innerHTML = `${data[id].plot}`;
   plotInput.required = true;
 
@@ -125,7 +120,6 @@ function showEditBook (id) {
   form.append(bookNameInput, authorInput, imgURLInput, plotInput, cancelSaveDiv);
   dynamicSide.append(title, form);
 
-  // cancel-btn
   cancelBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const result = confirm('Discard changes?');
@@ -136,14 +130,12 @@ function showEditBook (id) {
     }
   });
 
-  // save-btn
   saveBtn.addEventListener('click', e => {
     e.preventDefault();
     data[id].name = bookNameInput.value;
     data[id].author = authorInput.value;
     data[id].image = imgURLInput.value;
     data[id].plot = plotInput.value;
-    // localStorage.clear();
     localStorage.setItem('booksUpdate', JSON.stringify(data));
     const staticSideOld = document.querySelector('#static-side');
     const staticSideNew = staticSide();
@@ -180,7 +172,6 @@ function showAddBook () {
   const plotInput = document.createElement('textarea');
   plotInput.setAttribute('type', 'text');
   plotInput.setAttribute('placeholder', `Plot`);
-  // plotInput.innerHTML = `${data[0].plot}`;
   plotInput.required = true;
   
   const cancelSaveDiv = document.createElement('div');
@@ -195,7 +186,6 @@ function showAddBook () {
   form.append(bookNameInput, authorInput, imgURLInput, plotInput, cancelSaveDiv);
   dynamicSide.append(title, form);
 
-  // cancel-btn
   cancelBtn.addEventListener('click', () => {
     const result = confirm('Discard changes?');
     if (result) {
@@ -205,9 +195,8 @@ function showAddBook () {
     }
   });
 
-  // save-btn
   saveBtn.addEventListener('click', e => {
-    if (!bookNameInput.value || !authorInput || !imgURLInput || !plotInput) {
+    if (!bookNameInput.value || !authorInput.value || !imgURLInput.value || !plotInput.value) {
       alert('All fields are required!');
       return;
     }
@@ -239,16 +228,15 @@ function showAddBook () {
 }
 
 function validURL(str) {
-  let pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  let pattern = new RegExp('^(https?:\\/\\/)?'+ 
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
+    '(\\#[-a-z\\d_]*)?$','i'); 
   return !!pattern.test(str);
 }
 
-// Book preview 
 function showPreviewBook (id) {
   const dynamicSide = document.querySelector('#dynamic-side');
   dynamicSide.innerHTML = '';
@@ -267,7 +255,6 @@ function showPreviewBook (id) {
   dynamicSide.append(bookName, author, img, plot);
 }
 
-// btn back and forward
 window.addEventListener('popstate', function(e) {
   if (e.state === null) {
     const dynamicSide = document.querySelector('#dynamic-side');
@@ -281,7 +268,6 @@ window.addEventListener('popstate', function(e) {
   }
 });
 
-// Manually changing URL
 window.addEventListener('load', () => {
   isURLvalid(location.search, location.hash);
 });
