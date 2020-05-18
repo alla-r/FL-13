@@ -1,0 +1,18 @@
+.shadow {
+  box-shadow: 0 0.35rem 1.25rem rgba(0,0,0,.2);
+}
+.btn-primary {
+  color: #fff;
+  background-color: #FF7F50!important;
+  border-color: #FF7F50!important;
+} 
+.btn-dark {
+  padding: .375rem .75rem;
+}
+p {
+  line-height: 1.5;
+  letter-spacing: 0.75px;
+}
+.hero-text__tittle {
+  font-size: 2.9rem;
+}
