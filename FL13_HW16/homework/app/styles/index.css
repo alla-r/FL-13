@@ -1,0 +1,17 @@
+/* Your code goes here */
+#output .user-id {
+  border: none;
+  width: 6rem;
+}
+
+form {
+  margin-bottom: 2rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
